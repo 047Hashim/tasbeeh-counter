@@ -4,10 +4,10 @@ Welcome! This is a simple Tasbeeh counter that helps users keep track of their r
 ## Preview
 Test the live version [here](https://047hashim.github.io/tasbeeh-counter/)
 ### Dark Mode
-![Light Mode](./images-source/dark-mode.png)
+![Dark Mode](./images-source/dark-mode.png)
 
 ### Light Mode
-![Dark Mode](./images-source/light-mode.png)
+![Light Mode](./images-source/light-mode.png)
 
 ## Features  
 
