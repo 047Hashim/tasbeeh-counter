@@ -9,3 +9,10 @@ Test the live version [here](https://047hashim.github.io/tasbeeh-counter/)
 ### Light Mode
 ![Dark Mode](./images-source/light-mode.png)
 
+## Features  
+
+- **Count Reset** – Resets the counter to 0.  
+- **Custom Target** – Allows setting a custom recitation target.  
+- **Light/Dark Mode Toggle** – Switch between light and dark modes.  
+- **Target Recited Count** – Shows how many times the target has been reached (e.g., 0 times, 1 time).  
+- **Responsive Design** – Works smoothly on both desktop and mobile devices. 
