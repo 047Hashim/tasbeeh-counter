@@ -1,6 +1,6 @@
 # Tasbeeh Counter
 
-Welcome! This is a simple Tasbeeh counter that helps users keep track of their recitations. The app includes features such as a count reset, custom target input, light/dark mode toggle,target recited count and a recitation history.
+Welcome! This is a simple Tasbeeh counter that helps users keep track of their recitations. The app includes features such as a count reset, custom target input, light/dark mode toggle, target recited count, and a responsive design.
 ## Preview
 Test the live version [here](https://047hashim.github.io/tasbeeh-counter/)
 ### Dark Mode
