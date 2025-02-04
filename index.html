@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tasbee-counter</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <div id="dropdown-container">
+        <label for="target">Set Target:</label>
+        <select id="target">
+          <option value="none" selected>No Target Set</option>
+          <option value="70">70</option>
+          <option value="99">99</option>
+          <option value="100">100</option>
+          <option value="custom">Custom Target</option>
+        </select>
+        <input
+          type="number"
+          id="custom-target-input"
+          placeholder="Enter custom target"
+          style="display: none"
+        />
+      </div>
+
+      <div class="edit">Edit</div>
+      <div class="color-change">
+        <span class="text-theme">Light</span>
+        <i class="fa-solid fa-sun"></i>
+      </div>
+    </header>
+    <main>
+      <p><b>Target </b>recited <span id="recited-times">0</span> times.</p>
+      <div class="container">
+        <div class="count">
+          <span class="inner-value">0</span>
+        </div>
+        <button class="reset">
+          <i class="fa-solid fa-arrows-rotate"></i>
+        </button>
+        <button class="add"><i class="fa-solid fa-plus"></i></button>
+      </div>
+    </main>
+    <footer>
+      &copy; 2025
+      <a href="https://github.com/047Hashim" class="footer-link" target="_blank"
+        >Hashim Naqvi</a
+      >
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
