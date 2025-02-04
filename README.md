@@ -4,8 +4,8 @@ Welcome! This is a simple Tasbeeh counter that helps users keep track of their r
 ## Preview
 
 ### Dark Mode
-![Light Mode](./tasbeeh-counter/images-source/dark-mode.png)
+![Light Mode](./images-source/dark-mode.png)
 
 ### Light Mode
-![Dark Mode](./tasbeeh-counter/images-source/light-mode.png)
+![Dark Mode](./images-source/light-mode.png)
 
