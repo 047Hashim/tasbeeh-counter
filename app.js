@@ -13,7 +13,8 @@ function tashbeehCounter() {
   let preValue = value;
   let totalRecite = 0;
   let target;
-  add.addEventListener("click", () => {
+  //This function(addFun) will be invoked when the 'Add' button is clicked
+  let addFun = function () {
     if (target != 0 && value > target) {
       value = preValue;
       alert("You cannot edit a value greater than the target.");
@@ -27,7 +28,8 @@ function tashbeehCounter() {
     }
     preValue = value;
     countElement.innerText = value;
-  });
+  };
+  add.addEventListener("click", addFun);
 
   // Reset value when the Reset button is clicked
   reset.addEventListener("click", () => {
@@ -76,6 +78,7 @@ function tashbeehCounter() {
       if (event.key === "Enter") {
         event.preventDefault(); // Prevent new lines
         countElement.blur();
+        addFun();
       }
     });
   });
