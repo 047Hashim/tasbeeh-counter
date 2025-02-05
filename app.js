@@ -10,21 +10,29 @@ function tashbeehCounter() {
   let textIcon = document.querySelector(".color-change i");
   let body = document.querySelector("body");
   let value = parseInt(countElement.innerText);
+  let preValue = value;
   let totalRecite = 0;
   let target;
   add.addEventListener("click", () => {
-    value++;
-    if (value === target && target > 0) {
-      value = 0;
-      totalRecite++;
-      reciteTimes.innerText = totalRecite;
+    if (target != 0 && value > target) {
+      value = preValue;
+      alert("You cannot edit a value greater than the target.");
+    } else {
+      value++;
+      if (value >= target && target > 0) {
+        value = 0;
+        totalRecite++;
+        reciteTimes.innerText = totalRecite;
+      }
     }
+    preValue = value;
     countElement.innerText = value;
   });
 
   // Reset value when the Reset button is clicked
   reset.addEventListener("click", () => {
     value = 0;
+    preValue = value;
     countElement.innerText = value;
   });
 
@@ -120,8 +128,6 @@ function tashbeehCounter() {
 
       customTargetInput.style.display = "none";
       target = customValue;
-
-      console.log(`Custom target set to: ${target}`);
     }
   });
   customTargetInput.addEventListener("keydown", (event) => {
