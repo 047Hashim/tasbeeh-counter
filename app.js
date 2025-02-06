@@ -13,23 +13,25 @@ function tashbeehCounter() {
   let preValue = value;
   let totalRecite = 0;
   let target;
-  //This function(addFun) will be invoked when the 'Add' button is clicked
-  let addFun = function () {
-    if (target != 0 && value > target) {
-      value = preValue;
-      alert("You cannot edit a value greater than the target.");
+  function addFun() {
+    if (value === target && target > 0) {
+      value = 0;
+      totalRecite++;
+      reciteTimes.innerText = totalRecite;
     } else {
-      value++;
-      if (value >= target && target > 0) {
-        value = 0;
-        totalRecite++;
-        reciteTimes.innerText = totalRecite;
+      if (target != 0 && value > target) {
+        value = preValue;
+        alert("You cannot edit a value greater than the target.");
       }
     }
     preValue = value;
+
     countElement.innerText = value;
-  };
-  add.addEventListener("click", addFun);
+  }
+  add.addEventListener("click", () => {
+    value++;
+    addFun();
+  });
 
   // Reset value when the Reset button is clicked
   reset.addEventListener("click", () => {
@@ -38,6 +40,22 @@ function tashbeehCounter() {
     countElement.innerText = value;
   });
 
+  function handleBlur() {
+    countElement.setAttribute("contenteditable", "false");
+
+    // Ensure the value is numeric; default to 0 if invalid
+    const newValue = countElement.textContent.trim();
+
+    let parsedValue =
+      isNaN(newValue) || newValue === "" ? "" : parseInt(newValue);
+    if (parsedValue === "") {
+      alert("Please enter a correct numeric value.");
+      parsedValue = preValue;
+    }
+    countElement.textContent = parsedValue;
+    value = parsedValue;
+    addFun();
+  }
   editButton.addEventListener("click", () => {
     countElement.setAttribute("contenteditable", "true");
     countElement.focus();
@@ -51,7 +69,6 @@ function tashbeehCounter() {
     countElement.addEventListener("input", () => {
       const countElementWidth = countElement.offsetWidth;
       const countContainerWidth = countContainer.offsetWidth;
-
       if (countElementWidth > countContainerWidth) {
         countElement.textContent = countElement.textContent.slice(0, -1);
         const range = document.createRange();
@@ -62,23 +79,14 @@ function tashbeehCounter() {
         selection.addRange(range);
       }
     });
-    countElement.addEventListener("blur", () => {
-      countElement.setAttribute("contenteditable", "false");
-
-      // Ensure the value is numeric; default to 0 if invalid
-      const newValue = countElement.textContent.trim();
-      countElement.textContent =
-        isNaN(newValue) || newValue === "" ? "0" : newValue;
-
-      value = parseInt(countElement.textContent);
-    });
+    countElement.removeEventListener("blur", handleBlur); // Remove existing listener
+    countElement.addEventListener("blur", handleBlur); // Add only one listener
 
     // Stop editing when Enter is pressed
     countElement.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
         event.preventDefault(); // Prevent new lines
         countElement.blur();
-        addFun();
       }
     });
   });
